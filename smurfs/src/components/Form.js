@@ -10,8 +10,7 @@ const initialFormValues = {
 
  const Form = (props) => {
      const [form, setForm] = useState(initialFormValues)
-     console.log(props)
-
+    
      const handleChange = (e) => {
          setForm({
              ...form,
@@ -22,15 +21,15 @@ const initialFormValues = {
 
      const handleSubmit = (e) => {
          e.preventDefault()
-         const newSmurf = {
-             name: form.name,
-             age: form.age,
-             height: form.height
-         }
-         props.postNewSmurf(newSmurf)
+        //  const newSmurf = {
+        //      name: form.name,
+        //      age: form.age,
+        //      height: form.height
+        //  }
+         props.postNewSmurf(form)
          setForm(initialFormValues)
      }
-
+     
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -49,7 +48,7 @@ const initialFormValues = {
                 <input 
                     value={form.age}
                     onChange={handleChange}
-                    name='name'
+                    name='age'
                     type='number'
                     />
             </label>
@@ -58,7 +57,7 @@ const initialFormValues = {
                 <input 
                     value={form.height}
                     onChange={handleChange}
-                    name='name'
+                    name='height'
                     type='text'
                     />
             </label>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { fetchSmurfs } from './actions/smurfActions'
 import SmurfsList from './SmurfsList'
-import Form from './Form'
+
 
 import { connect } from 'react-redux';
 
@@ -22,7 +22,7 @@ class App extends Component {
       <div className="App">
         <h1>Smurfs</h1>
         <SmurfsList />
-        <Form />
+        
         
       </div>
     );

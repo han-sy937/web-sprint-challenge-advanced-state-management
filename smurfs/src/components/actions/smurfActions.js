@@ -22,11 +22,12 @@ export const fetchSmurfs = () => (dispatch) => {
         })
 }
 
-export const postNewSmurf = (input) => (dispatch) => {
+export const postNewSmurf = (smurfs) => (dispatch) => {
     dispatch({ type: POST_SMURF_START })
 
-    axios.post(`http://localhost:3333/smurfs`)
+    axios.post(`http://localhost:3333/smurfs`, smurfs)
     .then(res => {
+        // console.log(res)
         dispatch({ type: POST_SMURF_SUCCESS, payload: res.data})
     })
     .catch(err => {

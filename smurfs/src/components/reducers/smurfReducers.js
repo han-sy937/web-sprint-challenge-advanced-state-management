@@ -7,9 +7,7 @@ import { FETCH_SMURF_START,
      } from '../actions/smurfActions'
 
 const initialState = {
-    smurfs: [
-
-    ],
+    smurfs: [],
     loading: false,
     error: '',
     formError: '',
@@ -47,7 +45,7 @@ export function smurfReducers(state = initialState, action) {
                     ...state,
                     formError: '',
                     posting: false,
-                    smurfs: action.payload
+                    smurfs: []
                 }
                 case POST_SMURF_ERROR:
                     return {
