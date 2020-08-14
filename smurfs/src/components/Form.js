@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux';
 import { postNewSmurf } from '../components/actions/smurfActions'
 
+const initialFormValues = {
+        name: '',
+        age: '',
+        height: ''
+}
+
  const Form = (props) => {
-     const [form, setForm] = useState({
-         name: '',
-         age: '',
-         height: ''
-     })
+     const [form, setForm] = useState(initialFormValues)
      console.log(props)
 
      const handleChange = (e) => {
@@ -20,11 +22,17 @@ import { postNewSmurf } from '../components/actions/smurfActions'
 
      const handleSubmit = (e) => {
          e.preventDefault()
-         props.postNewSmurf(form)
+         const newSmurf = {
+             name: form.name,
+             age: form.age,
+             height: form.height
+         }
+         props.postNewSmurf(newSmurf)
+         setForm(initialFormValues)
      }
 
     return (
-        <form className='form' onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div>
                 <h2>Add a smurf</h2>
             </div>
